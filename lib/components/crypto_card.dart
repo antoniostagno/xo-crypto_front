@@ -8,14 +8,23 @@ class CryptoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Card(
-        child: ListTile(
-            title: Text(crypto.name),
-            leading: Icon(crypto.icon),
-            subtitle: Text(crypto.currentPrice.toString()),
-            onTap: () {}),
-      ),
+    return Card(
+      elevation: 4.0,
+      child: ListTile(
+          leading: Icon(
+            crypto.icon,
+            color: Colors.red, //item.color,
+          ),
+          title: Text(crypto.name),
+          subtitle: Text(crypto.currentPrice.toString()),
+          trailing: GestureDetector(
+              child: Icon(
+                Icons.arrow_forward,
+                color: Colors.red,
+              ),
+              onTap: () {
+                // ouvrir la fenêtre avec la courbe
+              })),
     );
   }
 }
