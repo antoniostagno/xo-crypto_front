@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Crypto {
+class Coin {
   String name;
   double currentPrice;
   IconData icon;
 
-  Crypto(this.name, this.currentPrice, this.icon);
+  Coin(this.name, this.currentPrice, this.icon);
 
-  factory Crypto.fromJson(Map<String, dynamic> json) {
-    return Crypto(
+  factory Coin.fromJson(Map<String, dynamic> json) {
+    return Coin(
       json['name'],
       json['current_price'],
       Icons.face,

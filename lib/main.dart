@@ -1,7 +1,8 @@
 // main.dart from https://www.kindacode.com/article/flutter-listview-pagination-load-more/
 import 'package:flutter/material.dart';
-import 'package:simple_listview/screens/crypto_list.dart';
-import 'package:simple_listview/screens/price_chart.dart';
+import 'screens/coin_grid.dart';
+import 'screens/coin_list.dart';
+import 'screens/price_chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,9 +19,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        initialRoute: CryptoList.id,
+        initialRoute: CoinList.id,
         routes: {
-          CryptoList.id: (context) => CryptoList(),
+          CoinList.id: (context) => CoinList(),
+          CoinGrid.id: (context) => CoinGrid(),
           PriceChart.id: (context) => PriceChart(),
         }
     );

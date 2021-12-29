@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/components/crypto_card.dart';
 import 'package:simple_listview/models/api.dart';
-import 'package:simple_listview/models/crypto.dart';
+import 'package:simple_listview/models/coin.dart';
 
-class CryptoList extends StatefulWidget {
-  static String id = '/crypto_list';
+class CoinGrid extends StatefulWidget {
+  static String id = '/crypto_grid';
 
   @override
-  _CryptoListState createState() => _CryptoListState();
+  _CoinGridState createState() => _CoinGridState();
 }
 
-class _CryptoListState extends State<CryptoList> {
-  List<Crypto> _listCrypto = [];
-  List<Crypto> _cartCrypto = [];
+class _CoinGridState extends State<CoinGrid> {
+  List<Coin> _listCrypto = [];
+  List<Coin> _cartCrypto = [];
 
   Future<void> load_cryptos() async {
-    List<Crypto> listTemp = await Api.get_cryptos();
+    List<Coin> listTemp = await Api.get_cryptos();
     setState(() {
       _listCrypto = listTemp;
     });
@@ -29,42 +28,20 @@ class _CryptoListState extends State<CryptoList> {
 
   @override
   Widget build(BuildContext context) {
-    print('crypto_list build');
-    print(_listCrypto);
-
     return Scaffold(
       appBar: AppBar(
         title: Text('xo-crypto.com'),
       ),
-      body: _buildListView(),
+      body: _buildGridView(),
     );
   }
 
-  // appelle soit _buildGridView soit _buildListView
-  ListView _buildListView() {
-    return ListView.builder(
-      itemCount: _listCrypto.length,
-      itemBuilder: (context, index) {
-        var item = _listCrypto[index];
-        return Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 8.0,
-            vertical: 2.0,
-          ),
-          child: CryptoCard(
-            _listCrypto[index],
-          ),
-        );
-      },
-    );
-  }
-
-  // appelle soit _buildGridView soit _buildListView
+   // appelle soit _buildGridView soit _buildListView
   GridView _buildGridView() {
     return GridView.builder(
         padding: const EdgeInsets.all(4.0),
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: _listCrypto.length,
         itemBuilder: (context, index) {
           var item = _listCrypto[index];
@@ -101,13 +78,13 @@ class _CryptoListState extends State<CryptoList> {
                       child: GestureDetector(
                         child: (!_cartCrypto.contains(item))
                             ? Icon(
-                                Icons.add_circle,
-                                color: Colors.green,
-                              )
+                          Icons.add_circle,
+                          color: Colors.green,
+                        )
                             : Icon(
-                                Icons.remove_circle,
-                                color: Colors.red,
-                              ),
+                          Icons.remove_circle,
+                          color: Colors.red,
+                        ),
                         onTap: () {
                           setState(() {
                             if (!_cartCrypto.contains(item))

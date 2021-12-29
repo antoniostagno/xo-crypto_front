@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/models/crypto.dart';
+import 'package:simple_listview/models/coin.dart';
+import 'package:simple_listview/screens/coin_grid.dart';
 import 'package:simple_listview/screens/price_chart.dart';
 
-class CryptoCard extends StatelessWidget {
-  Crypto crypto;
+class CoinCard extends StatelessWidget {
+  Coin coin;
 
-  CryptoCard(this.crypto);
+  CoinCard(this.coin);
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +14,14 @@ class CryptoCard extends StatelessWidget {
       elevation: 4.0,
       child: ListTile(
           leading: Icon(
-            crypto.icon,
+            coin.icon,
             color: Colors.red, //item.color,
           ),
           onTap: () {
-
+            Navigator.pushNamed(context, CoinGrid.id);
           },
-          title: Text(crypto.name),
-          subtitle: Text(crypto.currentPrice.toString()),
+          title: Text(coin.name),
+          subtitle: Text(coin.currentPrice.toString()),
           trailing: GestureDetector(
               child: Icon(
                 Icons.arrow_forward,
