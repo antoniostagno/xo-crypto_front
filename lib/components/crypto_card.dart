@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_listview/models/crypto.dart';
+import 'package:simple_listview/screens/price_chart.dart';
 
 class CryptoCard extends StatelessWidget {
   Crypto crypto;
@@ -26,7 +27,7 @@ class CryptoCard extends StatelessWidget {
                 color: Colors.red,
               ),
               onTap: () {
-                // ouvrir la fenêtre avec la courbe
+                Navigator.pushNamed(context, PriceChart.id);
               })),
     );
   }

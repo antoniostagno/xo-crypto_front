@@ -10,6 +10,13 @@ class PriceChart extends StatefulWidget {
 class _PriceChartState extends State<PriceChart> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Price"),
+      ),
+      body: Container(
+
+      )
+    );
   }
 }
