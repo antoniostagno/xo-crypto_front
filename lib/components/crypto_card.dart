@@ -15,6 +15,9 @@ class CryptoCard extends StatelessWidget {
             crypto.icon,
             color: Colors.red, //item.color,
           ),
+          onTap: () {
+
+          },
           title: Text(crypto.name),
           subtitle: Text(crypto.currentPrice.toString()),
           trailing: GestureDetector(

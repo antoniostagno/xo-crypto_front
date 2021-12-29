@@ -28,12 +28,9 @@ class Api{
         // then throw an exception.
         throw Exception('Failed to load album');
       }
-
     } catch (err) {
       print('Something went wrong');
     }
-
-
     return list_cryptos;
   }
 

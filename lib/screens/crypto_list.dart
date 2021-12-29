@@ -64,7 +64,7 @@ class _CryptoListState extends State<CryptoList> {
     return GridView.builder(
         padding: const EdgeInsets.all(4.0),
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: _listCrypto.length,
         itemBuilder: (context, index) {
           var item = _listCrypto[index];
@@ -101,13 +101,13 @@ class _CryptoListState extends State<CryptoList> {
                       child: GestureDetector(
                         child: (!_cartCrypto.contains(item))
                             ? Icon(
-                          Icons.add_circle,
-                          color: Colors.green,
-                        )
+                                Icons.add_circle,
+                                color: Colors.green,
+                              )
                             : Icon(
-                          Icons.remove_circle,
-                          color: Colors.red,
-                        ),
+                                Icons.remove_circle,
+                                color: Colors.red,
+                              ),
                         onTap: () {
                           setState(() {
                             if (!_cartCrypto.contains(item))
@@ -124,6 +124,3 @@ class _CryptoListState extends State<CryptoList> {
         });
   }
 }
-
-
-
