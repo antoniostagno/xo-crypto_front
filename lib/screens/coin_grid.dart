@@ -10,19 +10,18 @@ class CoinGrid extends StatefulWidget {
 }
 
 class _CoinGridState extends State<CoinGrid> {
-  List<Coin> _listCrypto = [];
-  List<Coin> _cartCrypto = [];
+  List<Coin> _listCoin = [];
 
-  Future<void> load_cryptos() async {
+  Future<void> load_coins() async {
     List<Coin> listTemp = await Api.get_cryptos();
     setState(() {
-      _listCrypto = listTemp;
+      _listCoin = listTemp;
     });
   }
 
   @override
   void initState() {
-    load_cryptos();
+    load_coins();
     super.initState();
   }
 
@@ -42,9 +41,9 @@ class _CoinGridState extends State<CoinGrid> {
         padding: const EdgeInsets.all(4.0),
         gridDelegate:
         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemCount: _listCrypto.length,
+        itemCount: _listCoin.length,
         itemBuilder: (context, index) {
-          var item = _listCrypto[index];
+          var item = _listCoin[index];
           return Card(
               elevation: 4.0,
               child: Stack(
@@ -56,7 +55,7 @@ class _CoinGridState extends State<CoinGrid> {
                     children: <Widget>[
                       Icon(
                         item.icon,
-                        color: (_listCrypto.contains(item))
+                        color: (_listCoin.contains(item))
                             ? Colors.grey
                             : Colors.red, //item.color,
                         size: 100.0,
@@ -76,21 +75,13 @@ class _CoinGridState extends State<CoinGrid> {
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: GestureDetector(
-                        child: (!_cartCrypto.contains(item))
-                            ? Icon(
+                        child: Icon(
                           Icons.add_circle,
                           color: Colors.green,
-                        )
-                            : Icon(
-                          Icons.remove_circle,
-                          color: Colors.red,
                         ),
                         onTap: () {
                           setState(() {
-                            if (!_cartCrypto.contains(item))
-                              _cartCrypto.add(item);
-                            else
-                              _cartCrypto.remove(item);
+
                           });
                         },
                       ),

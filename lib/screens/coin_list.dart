@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_listview/components/coin_card.dart';
 import 'package:simple_listview/models/api.dart';
 import 'package:simple_listview/models/coin.dart';
+import 'package:simple_listview/screens/coin_grid.dart';
 
 class CoinList extends StatefulWidget {
   static String id = '/crypto_list';
@@ -12,8 +13,16 @@ class CoinList extends StatefulWidget {
 
 class _CoinListState extends State<CoinList> {
   List<Coin> _listCoin = [];
+  int _selectedIndex = 0;
 
-  Future<void> load_cryptos() async {
+  void _onTap(int index) {
+    _selectedIndex = index;
+    print(_selectedIndex);
+    Navigator.pushNamed(context, CoinGrid.id);
+    setState(() {});
+  }
+
+  Future<void> load_coins() async {
     List<Coin> listTemp = await Api.get_cryptos();
     setState(() {
       _listCoin = listTemp;
@@ -22,7 +31,7 @@ class _CoinListState extends State<CoinList> {
 
   @override
   void initState() {
-    load_cryptos();
+    load_coins();
     super.initState();
   }
 
@@ -36,6 +45,7 @@ class _CoinListState extends State<CoinList> {
         title: Text('xo-crypto.com'),
       ),
       body: _buildListView(),
+      bottomNavigationBar: _buildBottomNav(),
     );
   }
 
@@ -54,6 +64,29 @@ class _CoinListState extends State<CoinList> {
           ),
         );
       },
+    );
+  }
+
+  BottomNavigationBar _buildBottomNav() {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.lightbulb),
+          label: 'Analysis',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.settings),
+          label: 'Settings',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: Colors.green,
+      unselectedItemColor: Colors.grey,
+      onTap: _onTap,
     );
   }
 }
