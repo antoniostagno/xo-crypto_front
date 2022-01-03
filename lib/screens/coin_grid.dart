@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/models/api.dart';
-import 'package:simple_listview/models/coin.dart';
+import 'package:xo/models/api.dart';
+import 'package:xo/models/coin.dart';
 
 class CoinGrid extends StatefulWidget {
   static String id = '/crypto_grid';
@@ -35,12 +35,12 @@ class _CoinGridState extends State<CoinGrid> {
     );
   }
 
-   // appelle soit _buildGridView soit _buildListView
+  // appelle soit _buildGridView soit _buildListView
   GridView _buildGridView() {
     return GridView.builder(
         padding: const EdgeInsets.all(4.0),
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemCount: _listCoin.length,
         itemBuilder: (context, index) {
           var item = _listCoin[index];
@@ -80,9 +80,7 @@ class _CoinGridState extends State<CoinGrid> {
                           color: Colors.green,
                         ),
                         onTap: () {
-                          setState(() {
-
-                          });
+                          setState(() {});
                         },
                       ),
                     ),

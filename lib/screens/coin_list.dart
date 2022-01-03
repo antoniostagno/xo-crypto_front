@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/components/coin_card.dart';
-import 'package:simple_listview/models/api.dart';
-import 'package:simple_listview/models/coin.dart';
-import 'package:simple_listview/screens/coin_grid.dart';
+import 'package:xo/models/api.dart';
+import 'package:xo/models/coin.dart';
+import 'package:xo/components/coin_card.dart';
+
+import 'coin_grid.dart';
 
 class CoinList extends StatefulWidget {
   static String id = '/crypto_list';

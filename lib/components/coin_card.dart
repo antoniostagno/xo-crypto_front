@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/models/coin.dart';
-import 'package:simple_listview/screens/coin_grid.dart';
-import 'package:simple_listview/screens/price_chart.dart';
+import 'package:xo/models/coin.dart';
+import 'package:xo/screens/coin_grid.dart';
+import 'package:xo/screens/price_chart.dart';
 
 class CoinCard extends StatelessWidget {
   Coin coin;

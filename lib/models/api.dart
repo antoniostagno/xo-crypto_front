@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:simple_listview/models/coin.dart';
+import 'package:xo/models/coin.dart';
 
 class Api {
   static String url = 'https://cryptoscriptultimate.herokuapp.com';
