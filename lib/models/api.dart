@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:simple_listview/models/coin.dart';
+import 'package:xo_crypto/models/coin.dart';
 
 class Api {
-  static String url = 'https://cryptoscriptultimate.herokuapp.com';
+  static String url = 'https://xo-crypto.herokuapp.com';
 
   static Future<List<Coin>> get_cryptos() async {
     List<Coin> list_cryptos = [];

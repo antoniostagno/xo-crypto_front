@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/models/coin.dart';
-import 'package:simple_listview/screens/coin_grid.dart';
-import 'package:simple_listview/screens/price_chart.dart';
+import 'package:xo_crypto/models/coin.dart';
+import 'package:xo_crypto/screens/coin_grid.dart';
+import 'package:xo_crypto/screens/price_chart.dart';
 
 class CoinCard extends StatelessWidget {
   Coin coin;
@@ -28,7 +28,10 @@ class CoinCard extends StatelessWidget {
                 color: Colors.red,
               ),
               onTap: () {
-                Navigator.pushNamed(context, PriceChart.id);
+                Navigator.pushNamed(context,
+                    PriceChart.id,
+                  arguments: coin
+                );
               })),
     );
   }

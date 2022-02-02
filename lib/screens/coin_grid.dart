@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:simple_listview/models/api.dart';
-import 'package:simple_listview/models/coin.dart';
+import 'package:xo_crypto/components/bottom_nav.dart';
+import 'package:xo_crypto/models/api.dart';
+import 'package:xo_crypto/models/coin.dart';
+import 'package:xo_crypto/models/enum_screens.dart';
 
 class CoinGrid extends StatefulWidget {
   static String id = '/crypto_grid';
@@ -32,6 +34,7 @@ class _CoinGridState extends State<CoinGrid> {
         title: Text('xo-crypto.com'),
       ),
       body: _buildGridView(),
+      bottomNavigationBar: buildBottomNav(context, Screens.Grid),
     );
   }
 
